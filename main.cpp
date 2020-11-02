@@ -51,7 +51,7 @@ MatrixXd bilateral_mesh_denosing(MatrixXd& V, MatrixXi& F){
             d_sum += w_s * w_r * d;
             k_v += w_s * w_r;
         }
-        newV.row(i) = V.row(i) + norm * d_sum / k_v;
+        newV.row(i) = V.row(i) + (norm * d_sum / k_v).transpose();
     }
     return newV;
 }
